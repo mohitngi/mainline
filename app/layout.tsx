@@ -17,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <meta name="theme-color" content="#ffffff" />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};

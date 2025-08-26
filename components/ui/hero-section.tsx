@@ -72,26 +72,27 @@ export function HeroSection({ badge, title, description, actions, image }: HeroP
 
           {/* Actions */}
           <div className="relative z-10 flex animate-appear justify-center gap-4 opacity-0 delay-300">
-            {actions.map((action, index) => (
-              <Button key={index} variant={action.variant} size="lg" asChild>
-                <a href={action.href} className="flex items-center gap-2">
-                  {action.icon}
-                  {action.text}
-                </a>
-              </Button>
-            ))}
+            {actions.map((action, index) => {
+              const isLearnMore = action.text.toLowerCase().includes('learn more');
+              return (
+                <Button 
+                  key={index} 
+                  variant={isLearnMore ? 'ghost' : action.variant} 
+                  size="lg" 
+                  asChild
+                  className={isLearnMore ? 'text-foreground hover:bg-transparent hover:underline' : ''}
+                >
+                  <a href={action.href} className="flex items-center gap-2">
+                    {action.icon}
+                    {action.text}
+                  </a>
+                </Button>
+              );
+            })}
           </div>
 
-          {/* Image with Glow */}
-          {image && (
-            <div className="relative pt-12">
-              <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
-                <Mockup type="responsive">
-                  <Image src={imageSrc || "/placeholder.svg"} alt={image.alt} width={1248} height={765} priority />
-                </Mockup>
-              </MockupFrame>
-            </div>
-          )}
+          {/* Spacer to maintain layout */}
+          <div className="pt-22" />
         </div>
       </div>
     </section>

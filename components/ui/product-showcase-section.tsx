@@ -12,23 +12,25 @@ export default function ProductShowcaseSection() {
     logo: '/mainline-logo.png',
     company: 'Mainline',
     tags: 'Developer Platform',
-    title: 'Streamlined Development Workflows',
-    subtitle: 'How we helped teams ship 3x faster with our developer-first platform and infrastructure tools',
+    title: 'Accelerate Your Development Cycle',
+    subtitle: 'Teams using Mainline ship features 3x faster with our integrated workflow automation and deployment tools',
   }
 
   return (
     <section className="py-12" style={{ backgroundColor: '#FFFBFA' }}>
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* 1. MAP - Top Left */}
-        <div className="relative rounded-lg overflow-hidden bg-muted border border-border p-4">
+        <div className="relative rounded-lg overflow-hidden bg-white border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
             <MapPin className="w-4 h-4" />
             Global Infrastructure
           </div>
-          <h3 className="text-xl font-normal text-foreground">
-            Deploy anywhere with our global edge network.{" "}
-            <span className="text-muted-foreground">Low-latency performance for developers worldwide.</span>
+          <h3 className="text-2xl font-semibold text-foreground mb-3">
+            Deploy with confidence worldwide
           </h3>
+          <p className="text-muted-foreground">
+            Our global edge network ensures your applications are fast and reliable, no matter where your users are located. Experience 99.9% uptime and sub-100ms response times.
+          </p>
           <div className="relative mt-4">
             <div className="absolute top-16 left-1/2 -translate-x-1/2 z-10 px-3 py-1 bg-background text-foreground rounded-md text-xs font-medium shadow flex items-center gap-2">
                • Last connection from US

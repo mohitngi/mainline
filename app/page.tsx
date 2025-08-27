@@ -22,30 +22,30 @@ export default function Page() {
 
       <HeroSection
         badge={{
-          text: "New in Mainline",
+          text: "Now in Beta",
           action: {
-            text: "See what's new",
-            href: "#",
+            text: "Join waitlist",
+            href: "#waitlist",
           },
         }}
-        title="Mainline Your Product"
-        description="Mainline is the fit-for-purpose tool for planning and building modern software products."
+        title="Ship Better Code, Faster"
+        description="The complete platform for modern software development from planning to production, all in one place."
         actions={[
           {
-            text: "Get Started",
-            href: "#",
+            text: "Start Free Trial",
+            href: "/signup",
             variant: "default",
           },
           {
-            text: "Learn More",
-            href: "#",
+            text: "View Demo",
+            href: "#demo",
             variant: "glow",
           },
         ]}
         image={{
           light: "/modern-dashboard-light.png",
           dark: "/modern-dashboard-dark.png",
-          alt: "Dashboard preview",
+          alt: "Mainline Dashboard showing project management and deployment",
         }}
       />
       

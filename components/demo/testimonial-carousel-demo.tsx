@@ -8,7 +8,7 @@ const testimonials = [
     avatar: "nick-parsons.webp",
     name: "Nick Parsons",
     role: "Director of Marketing, Clerk",
-    review: "Mainline's intuitive interface transformed our workflow. Our team's productivity has never been higher",
+    review: "Mainline's intuitive interface transformed our workflow. Our team's productivity has never been higher.",
   },
   {
     company: "raycast",

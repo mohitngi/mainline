@@ -6,10 +6,12 @@ import type { ReactNode } from "react"
 export function FeaturesSection() {
   return (
     <section className="bg-[#FFFBFA] py-16 md:py-24">
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-5xl">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Streamline Your Workflow</h2>
-          <p className="mt-3 text-base text-muted-foreground">Everything you need to manage projects and workflows efficiently</p>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Built for Modern Development Teams</h2>
+          <p className="mt-3 text-lg text-muted-foreground max-w-3xl mx-auto">
+            Accelerate your development cycle with tools designed for speed, collaboration, and reliability
+          </p>
         </div>
 
         <div className="mx-auto grid gap-4 lg:grid-cols-2">
@@ -17,8 +19,8 @@ export function FeaturesSection() {
             <CardHeader className="pb-3">
               <CardHeading
                 icon={Workflow}
-                title="Project Workflow Tracking"
-                description="Advanced workflow system. Track progress across custom issue flows for your team."
+                title="Intelligent Workflow Automation"
+                description="Automate repetitive tasks and streamline your development pipeline with smart workflows that adapt to your team's needs."
               />
             </CardHeader>
 
@@ -43,8 +45,8 @@ export function FeaturesSection() {
             <CardHeader className="pb-3">
               <CardHeading
                 icon={Calendar}
-                title="Smart Project Scheduling"
-                description="Intelligent scheduling system. Break projects down into concrete phases."
+                title="Predictive Project Planning"
+                description="Leverage AI-powered insights to forecast project timelines and resource allocation with 95% accuracy."
               />
             </CardHeader>
 
@@ -66,9 +68,14 @@ export function FeaturesSection() {
           </FeatureCard>
 
           <FeatureCard className="p-6 lg:col-span-2">
-            <p className="mx-auto my-6 max-w-md text-balance text-center text-2xl font-semibold">
-              Smart workflow automation with progress insights and team collaboration.
-            </p>
+            <div className="text-center space-y-4">
+              <p className="text-2xl font-semibold text-foreground">
+                Trusted by engineering teams at scale
+              </p>
+              <p className="text-muted-foreground">
+                Join thousands of developers who ship better code, faster
+              </p>
+            </div>
 
             <div className="flex justify-center gap-6 overflow-hidden">
               <CircularUI label="Planning" circles={[{ pattern: "border" }, { pattern: "border" }]} />

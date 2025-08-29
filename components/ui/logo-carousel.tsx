@@ -25,19 +25,43 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 }
 
 const distributeLogos = (allLogos: Logo[], columnCount: number): Logo[][] => {
-  const shuffled = shuffleArray(allLogos)
+  const shuffled = shuffleArray([...allLogos])
   const columns: Logo[][] = Array.from({ length: columnCount }, () => [])
-
+  
+  // First pass: distribute logos evenly across columns
   shuffled.forEach((logo, index) => {
     columns[index % columnCount].push(logo)
   })
 
-  const maxLength = Math.max(...columns.map((col) => col.length))
-  columns.forEach((col) => {
-    while (col.length < maxLength) {
-      col.push(shuffled[Math.floor(Math.random() * shuffled.length)])
-    }
-  })
+  // Calculate how many unique logos we need to fill the grid
+  const maxLength = Math.max(...columns.map(col => col.length))
+  const totalLogosNeeded = columnCount * maxLength
+  
+  // If we need more unique logos than we have, start reusing them
+  if (totalLogosNeeded > allLogos.length) {
+    // Create a pool of unique logos to use for filling
+    const logoPool = [...allLogos]
+    let poolIndex = 0
+    
+    // Fill each column to maxLength with unique logos
+    columns.forEach(column => {
+      while (column.length < maxLength) {
+        // If we've used all unique logos, shuffle and start from beginning
+        if (poolIndex >= logoPool.length) {
+          shuffleArray(logoPool)
+          poolIndex = 0
+        }
+        
+        // Add the next logo from the pool
+        column.push({
+          ...logoPool[poolIndex],
+          // Create a unique ID for each instance to ensure proper animation
+          id: parseInt(`${logoPool[poolIndex].id}${Date.now()}`)
+        })
+        poolIndex++
+      }
+    })
+  }
 
   return columns
 }
@@ -256,6 +280,19 @@ function TailwindCSSIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+function GitHubIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.386-1.332-1.755-1.332-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.573C20.566 21.795 24 17.295 24 12c0-6.627-5.373-12-12-12z" />
+    </svg>
+  )
+}
+
 // Export the logos array
 export const allLogos = [
   { name: "Apple", id: 1, img: AppleIcon },
@@ -263,4 +300,5 @@ export const allLogos = [
   { name: "Vercel", id: 3, img: VercelIcon },
   { name: "Next.js", id: 4, img: NextjsIcon },
   { name: "Tailwind CSS", id: 5, img: TailwindCSSIcon },
+  { name: "GitHub", id: 6, img: GitHubIcon },
 ]

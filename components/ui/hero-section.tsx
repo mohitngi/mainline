@@ -14,7 +14,8 @@ interface HeroAction {
   text: string
   href: string
   icon?: React.ReactNode
-  variant?: "default" | "glow"
+  variant?: "default" | "glow" | "ghost"
+  className?: string
 }
 
 interface HeroProps {
@@ -42,7 +43,7 @@ export function HeroSection({ badge, title, description, actions, image }: HeroP
   return (
     <section
       className={cn(
-        "text-foreground bg-[#FFFBFA]",
+        "text-foreground bg-background",
         "pt-2 pb-12 sm:pt-8 sm:pb-24 md:pt-12 md:pb-32 px-4",
         "fade-bottom overflow-hidden pb-0",
       )}
@@ -61,12 +62,12 @@ export function HeroSection({ badge, title, description, actions, image }: HeroP
           )}
 
           {/* Title */}
-          <h1 className="relative z-10 inline-block animate-appear bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
+          <h1 className="relative z-10 inline-block animate-appear bg-gradient-to-r from-foreground/90 to-foreground/90 bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
             {title}
           </h1>
 
           {/* Description */}
-          <p className="text-md relative z-10 max-w-[550px] animate-appear font-medium text-muted-foreground opacity-0 delay-100 sm:text-xl">
+          <p className="text-md relative z-10 max-w-[550px] animate-appear font-medium text-muted-foreground/80 opacity-0 delay-100 sm:text-xl">
             {description}
           </p>
 
@@ -80,7 +81,10 @@ export function HeroSection({ badge, title, description, actions, image }: HeroP
                   variant={isLearnMore ? 'ghost' : action.variant} 
                   size="lg" 
                   asChild
-                  className={isLearnMore ? 'text-foreground hover:bg-transparent hover:underline' : ''}
+                  className={cn(
+                    isLearnMore ? 'text-foreground hover:bg-transparent hover:underline' : '',
+                    action.className
+                  )}
                 >
                   <a href={action.href} className="flex items-center gap-2">
                     {action.icon}

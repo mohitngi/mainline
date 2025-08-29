@@ -17,7 +17,7 @@ const demoLogos = [
 
 export default function Page() {
   return (
-    <main className="bg-[#FFFBFA]">
+    <main className="bg-background">
       <Navbar1 />
 
       <HeroSection
@@ -32,14 +32,15 @@ export default function Page() {
         description="The complete platform for modern software development from planning to production, all in one place."
         actions={[
           {
-            text: "Start Free Trial",
-            href: "/signup",
+            text: "Get Started",
+            href: "/#",
             variant: "default",
           },
           {
             text: "View Demo",
             href: "#demo",
-            variant: "glow",
+            variant: "ghost",
+            className: 'text-foreground hover:bg-transparent hover:underline',
           },
         ]}
         image={{

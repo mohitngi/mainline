@@ -5,7 +5,7 @@ import type { ReactNode } from "react"
 
 export function FeaturesSection() {
   return (
-    <section className="bg-[#FFFBFA] py-16 md:py-24">
+    <section className="bg-background py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Built for Modern Development Teams</h2>
@@ -104,21 +104,14 @@ interface FeatureCardProps {
 
 function FeatureCard({ children, className }: FeatureCardProps) {
   return (
-    <Card className={cn("relative overflow-hidden bg-white/70 backdrop-blur-sm border-amber-100 shadow-sm hover:shadow-md transition-shadow", className)}>
+    <Card className={cn("relative overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-shadow", className)}>
       <CardDecorator />
       {children}
     </Card>
   )
 }
 
-const CardDecorator = () => (
-  <>
-    <span className="border-primary absolute -left-px -top-px block size-2 border-l-2 border-t-2"></span>
-    <span className="border-primary absolute -right-px -top-px block size-2 border-r-2 border-t-2"></span>
-    <span className="border-primary absolute -bottom-px -left-px block size-2 border-b-2 border-l-2"></span>
-    <span className="border-primary absolute -bottom-px -right-px block size-2 border-b-2 border-r-2"></span>
-  </>
-)
+const CardDecorator = () => null
 
 interface CardHeadingProps {
   icon: LucideIcon

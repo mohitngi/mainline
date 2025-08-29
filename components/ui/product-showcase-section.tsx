@@ -1,9 +1,9 @@
 'use client'
 
 import { Activity, GalleryVerticalEnd, Files, Flower, MapPin, ArrowRight, ArrowUpRight, ArrowDownRight, AlertCircle } from 'lucide-react'
-import DottedMap from 'dotted-map'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from 'recharts'
 import { Card } from '@/components/ui/card'
+import { WorldMap } from '@/components/ui/world-map'
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
@@ -20,27 +20,58 @@ export default function ProductShowcaseSection() {
     <section className="py-12" style={{ backgroundColor: '#FFFBFA' }}>
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* 1. MAP - Top Left */}
-        <div className="relative rounded-lg overflow-hidden bg-white border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-            <MapPin className="w-4 h-4" />
-            Global Infrastructure
-          </div>
-          <h3 className="text-2xl font-semibold text-foreground mb-3">
-            Deploy with confidence worldwide
-          </h3>
-          <p className="text-muted-foreground">
-            Our global edge network ensures your applications are fast and reliable, no matter where your users are located. Experience 99.9% uptime and sub-100ms response times.
-          </p>
-          <div className="relative mt-4">
-            <div className="absolute top-16 left-1/2 -translate-x-1/2 z-10 px-3 py-1 bg-background text-foreground rounded-md text-xs font-medium shadow flex items-center gap-2">
-               • Last connection from US
+        <div className="relative rounded-lg overflow-hidden bg-white border border-border h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+          <div className="p-6 pb-0">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+              <MapPin className="w-4 h-4" />
+              Global Infrastructure
             </div>
-            <Map />
+            <h3 className="text-2xl font-semibold text-foreground mb-3">
+              Deploy with confidence worldwide
+            </h3>
+            <p className="text-muted-foreground">
+              Our global edge network ensures your applications are fast and reliable, no matter where your users are located. Experience 99.9% uptime and sub-100ms response times.
+            </p>
+          </div>
+          <div className="relative flex-1 min-h-[300px] mt-4">
+            <WorldMap
+              dots={[
+                {
+                  start: { lat: 37.7749, lng: -122.4194 }, // San Francisco
+                  end: { lat: 40.7128, lng: -74.0060 },    // New York
+                },
+                {
+                  start: { lat: 37.7749, lng: -122.4194 }, // San Francisco
+                  end: { lat: 51.5074, lng: -0.1278 },     // London
+                },
+                {
+                  start: { lat: 51.5074, lng: -0.1278 },   // London
+                  end: { lat: 52.5200, lng: 13.4050 },     // Berlin
+                },
+                {
+                  start: { lat: 52.5200, lng: 13.4050 },   // Berlin
+                  end: { lat: 35.6762, lng: 139.6503 },    // Tokyo
+                },
+                {
+                  start: { lat: 35.6762, lng: 139.6503 },  // Tokyo
+                  end: { lat: 1.3521, lng: 103.8198 },     // Singapore
+                },
+                {
+                  start: { lat: 1.3521, lng: 103.8198 },   // Singapore
+                  end: { lat: -33.8688, lng: 151.2093 },   // Sydney
+                }
+              ]}
+              lineColor="#3b82f6"
+            />
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground rounded-md text-xs font-medium border border-border/20 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              Live connections from 6+ regions
+            </div>
           </div>
         </div>
 
         {/* 2. FEATURED CASE STUDY BLOCK - Top Right */}
-        <div className="relative flex flex-col p-5 rounded-lg border border-border bg-card overflow-hidden h-full">
+        <div className="relative rounded-lg overflow-hidden bg-white border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
           {/* Colored blocks in background */}
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 -left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
@@ -114,7 +145,7 @@ export default function ProductShowcaseSection() {
         </div>
 
         {/* 3. CHART - Bottom Left */}
-        <div className="relative rounded-lg border border-border bg-gradient-to-br from-muted/50 to-background p-5 space-y-4 overflow-hidden">
+        <div className="relative rounded-lg overflow-hidden bg-white border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
           {/* Wave background */}
           <div className="absolute inset-0 opacity-10 overflow-hidden">
             <div className="absolute inset-0 opacity-20">
@@ -208,7 +239,7 @@ export default function ProductShowcaseSection() {
         </div>
 
         {/* 4. ALL FEATURE CARDS - Bottom Right */}
-        <div className="grid sm:grid-cols-2 rounded-lg overflow-hidden bg-card border border-border">
+        <div className="grid sm:grid-cols-2 rounded-lg overflow-hidden bg-white border border-border shadow-sm hover:shadow-md transition-shadow">
           <FeatureCard
             icon={<Files className="w-4 h-4" />}
             title="Developer Experience"

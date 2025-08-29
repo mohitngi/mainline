@@ -93,7 +93,7 @@ export function Pricing() {
   const [billingCycle, setBillingCycle] = React.useState<'monthly' | 'yearly'>('monthly');
 
   return (
-    <section className="py-24 bg-[#FFFBFA]">
+    <section className="py-24 bg-background">
       <div className="container px-4 mx-auto">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">

@@ -26,7 +26,7 @@ html {
 }
         `}</style>
       </head>
-      <body className="min-h-screen bg-[#FFFBFA]">
+      <body className="min-h-screen bg-background">
         <div className="min-h-screen">
           {children}
         </div>

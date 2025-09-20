@@ -30,7 +30,7 @@ export function FeaturesSection() {
                 <div className="aspect-[76/59] border">
                   {/* Force light theme image only */}
                   <img
-                    src="https://tailark.com/_next/image?url=%2Fpayments-light.png&w=3840&q=75"
+                    src="/1stcard.webp"
                     className="shadow w-full h-full object-cover"
                     alt="workflow dashboard illustration"
                     width={1207}
@@ -56,7 +56,7 @@ export function FeaturesSection() {
                 <div className="aspect-[76/59] border">
                   {/* Force light theme image only */}
                   <img
-                    src="https://tailark.com/_next/image?url=%2Forigin-cal.png&w=3840&q=75"
+                    src="/2ndcard.webp"
                     className="shadow w-full h-full object-cover"
                     alt="project timeline illustration"
                     width={1207}
